@@ -24,16 +24,14 @@ def index(request):
         "list":item_list,
         "title":"TODO LIST",
     }    
-    return render(request, 'todo/index.html',page)
+    return render(request, 'index.html',page)
 
 
 #funtion to remove item, it receive todo items_id as primary key from url 
 def remove(request, item_id):
     item  = Todo.objects.get(id=item_id)
     item.delete()
-    
     messages.info(request,"item removed !!!")
-    
     return redirect('todo')
-
+    
     
